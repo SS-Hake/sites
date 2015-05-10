@@ -1,3 +1,8 @@
+#Website Settings
+title: Portfolio Theme
+email: sam_hake@live.co.uk
+description: "Design | Portfolio | Project"
+
 # Build settings
 
 markdown: kramdown
