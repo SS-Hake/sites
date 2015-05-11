@@ -1,3 +1,6 @@
+%skill-color
+	background: #777
+
 h3	
 	padding: 100px 0 30px
 	@extend %nav-bold
@@ -12,9 +15,10 @@ h3
 	+justify-content(space-around)
 
 	#face-img
-		+size(100px)
+		+size(200px)
 		text-align: center
 		color: #fff
+		border-radius: 50%
 		/* background: url(/assets/img/face-img.jpg) */
 		background: #ccc
 		order: 3
@@ -105,7 +109,7 @@ h3
 		span 
 			display: inline-block
 			+size(14px)
-			background-color: #777
+			background-color: #222
 			margin-right: 2px 
 			border-radius: 50%
 
@@ -116,3 +120,10 @@ h3
 				background: #fff
 				border-radius: 50% 
 				margin: 2px
+
+		//For loop generating the css for the skill levels
+		@for $i from 1 through 10
+			&.skill-#{$i} span:nth-child(n+#{$i+1})
+				@extend %skill-color
+
+

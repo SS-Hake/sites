@@ -1,14 +1,31 @@
-DevTips-Starter-Kit
-===================
 
-Use this as a simple structure for a simple start to a simple site.
 
-- There is a Jekyll friendly version <a href="https://github.com/DevTips/DevTips-Starter-Kit/tree/Jekyll-Starter-Kit">here.</a>
+/* 
+#skill-bars .skill-icon.skill-1 span:nth-child(n+2) {
+      background: #777; }
+    #skill-bars .skill-icon.skill-2 span:nth-child(n+3) {
+      background: #777; }
+    #skill-bars .skill-icon.skill-3 span:nth-child(n+4) {
+      background: #777; }
+    #skill-bars .skill-icon.skill-4 span:nth-child(n+5) {
+      background: #777; }
+    #skill-bars .skill-icon.skill-5 span:nth-child(n+6) {
+      background: #777; }
+    #skill-bars .skill-icon.skill-6 span:nth-child(n+7) {
+      background: #777; }
+    #skill-bars .skill-icon.skill-7 span:nth-child(n+8) {
+      background: #777; }
+    #skill-bars .skill-icon.skill-8 span:nth-child(n+9) {
+      background: #777; }
+    #skill-bars .skill-icon.skill-9 span:nth-child(n+10) {
+      background: #777; }
+    #skill-bars .skill-icon.skill-10 span:nth-child(n+11) {
+      background: #777; } */
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=GTBaQ2DcGUk
-" target="_blank">
-Watch the video on YouTube
-<img src="thumbnail.png" 
-alt="Watch the video on youtube" />
+/* //For loop generating the css for the skill levels
+		@for $i from 1 through 10
+			&.skill-#{$i} span:nth-child(n+#{$i+1})
+				background: #777 */
 
-</a>
+
+        Part 6 - 30 mins - modularise the css with snippets - header and footer logo and bg image
