@@ -16,13 +16,26 @@
 		position: relative
 		overflow: hidden
 
+
+		@media screen and(max-width: 540px)
+			width: 50%
 		//Find a background image
 
 		.thumb-overlay
-			+position(absolute, 100% 0px null 0px)
+			+position(relative, 100% 0px null 0px)
 			background: fade-out(#ccc, 0.5)
 			height: 100%
+			text-align: center
+			+transition
+
+			strong
+				display: block
+				padding: 20
+				font-size: 20px
+				color: white
+				font-weight: 300
+				text-transform: uppercase
 
 		&:hover .thumb-overlay
+			width: 100%
 			+position(relative, 0% 0px null 0px)
-			+transition
