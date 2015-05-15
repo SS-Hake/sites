@@ -3,11 +3,9 @@ $( document ).ready(function() {
   $(function() {
 
   	//scroll to the clicked object in a time of 1 second.
-	smoothScrolling(1000);
+	smoothScrolling(1500);
 
 	});
-
-
 
 	function smoothScrolling(duration) {
 
