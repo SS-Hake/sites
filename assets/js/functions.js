@@ -5,6 +5,9 @@ $( document ).ready(function() {
   	//scroll to the clicked object in a time of 1 second.
 	smoothScrolling(1500);
 
+	//Bring in the project info slider
+	projectSlider();
+
 	});
 
 	function smoothScrolling(duration) {
@@ -24,6 +27,22 @@ $( document ).ready(function() {
 				}, duration);
 			}
 		});
+	}
+
+	function projectSlider() {
+
+		$('.thumb-unit').click(function() {
+
+			$('.project-section').css('left', '-100%');
+
+		});
+
+		$('.project-return').click(function() {
+
+			$('.project-section').css('left', '0%');
+
+		});
+
 	}
 
 });

@@ -1,6 +1,19 @@
 .grey-section
 	background-color: #fff
 
+.project-section
+	overflow-x: hidden
+
+.project-slider
+	width: 200%
+	position: relative
+	left: 0%
+	+transition
+
+.wrapper-1, .wrapper-2
+	width: 50%
+	float: left
+
 .thumbnail-wrapper
 	max-width: 960px
 	margin: 0px auto
@@ -11,24 +24,26 @@
 		display: inline-block
 		width: 25%
 		height: 150px
-		background-color: pink
+		background-color: #888
 		float: left
 		position: relative
 		overflow: hidden
-
+		+perspective(300)
 
 		@media screen and(max-width: 540px)
 			width: 50%
 		//Find a background image
 
 		.thumb-overlay
-			+position(relative, 100% 0px null 0px)
+			+position(relative, -50% 0px null 0px)
 			background: fade-out(#ccc, 0.5)
 			height: 100%
 			text-align: center
-			+transition
+			+transition(0.5s)
 			+align-items(center)
 			+justify-content(space-around)
+			+transform(rotateX(90deg))
+			opacity: 0
 
 
 			strong
@@ -42,5 +57,47 @@
 		&:hover .thumb-overlay
 			width: 100%
 			+position(absolute, 0% 0px null 0px)
+			+transform(rotateX(0deg))
+			opacity: 1
 			//Could be ^ top: 0%
 			//bouncejs
+
+.detail-container
+	max-width: 600px
+	margin: 0px auto
+
+	h4	
+		margin-top: 0
+		font-weight: 300
+		text-transform: uppercase
+		font-size: 24px
+		line-height: 1.2
+
+	img 
+		max-width: 100%
+		margin-bottom: 20px
+
+	.project-return
+		+size(40px)
+		cursor: pointer
+		opacity: 0.5
+		+position(relative, null null -35px -60px)
+
+		svg 
+			+size(40px)
+
+		path
+			fill: rgba(0, 0, 0, 0.4)
+
+		&:hover
+			opacity: 1
+
+@media (max-width: 740px)
+	.wrapper-2
+
+		.project-return
+			left: 0px
+			bottom: -40px
+
+	h4
+		margin-left: 60px
