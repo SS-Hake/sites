@@ -7,9 +7,9 @@
 
 	.client-unit
 		max-width: 700px
-		margin: 0 0 50px -375px
+		margin: 50px auto
 		+display(flex)
-		+position(absolute, 0px null null 50%)
+		position: relative
 		display: none
 
 		&.active-client
@@ -59,7 +59,7 @@
 
 	.client-logo
 		cursor: pointer
-		margin: 300px 10px 0px 0px
+		margin: 30px 10px 0px 0px
 		padding-bottom: 15px
 		border-bottom: 4px solid transparent
 		opacity: 0.4
@@ -85,3 +85,51 @@
 		+position(absolute, 50% null null 10px)
 		z-index: 1
 		cursor: pointer
+
+//Mobile client logo display
+.clients-mobile-nav
+	text-align: center
+	display: none
+
+	span
+		cursor: pointer
+		display: inline-block
+		+size(16px)
+		border-radius: 50%
+		border: solid 2px #ccc
+		margin: 0px 6px
+
+		&.active-client
+			border-color: $section-title
+
+@media (max-width: 750px)
+	.client-controls
+		display: none
+
+	.clients-conveyor
+
+		.client-unit.active-client
+			display: block
+			position: relative
+			margin-left: 0px
+			left: auto
+
+		.client-headshot
+			margin-bottom: 20px
+			width: 100%
+			left: auto
+			
+		.client-comment
+			padding: 0px 30px
+			max-width: 400px
+			margin: 0px
+
+			.client-quotation
+				left: 25px
+
+	.client-logo
+		display: none
+
+	.clients-mobile-nav
+		width: 100%
+		display: block

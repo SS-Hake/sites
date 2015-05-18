@@ -2,6 +2,11 @@
 
 	<h3 id="clients">Clients</h3>
 
+	<div class=" clients-mobile-nav">
+	{% for client in site.data.settings.clients %}
+		<span></span>
+	{% endfor %}
+	</div>
 	<div class="client-controls">
 
 		<div class="client-next">{% include icons/icon-next.html %}</div>
