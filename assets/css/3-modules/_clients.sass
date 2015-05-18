@@ -1,0 +1,87 @@
+.clients
+	position: relative
+
+.clients-conveyor
+	width: 100%
+	position: relative
+
+	.client-unit
+		max-width: 700px
+		margin: 0 0 50px -375px
+		+display(flex)
+		+position(absolute, 0px null null 50%)
+		display: none
+
+		&.active-client
+			+display(flex)
+
+	.client-headshot
+		min-width: 300px
+		text-align: center
+
+		img
+			max-width: 128px
+			border-radius: 20%
+
+		.client-name
+			display: block
+			text-transform: uppercase
+			font-weight: 400
+			letter-spacing: 0.5px
+			color: #333
+
+		.client-title
+			color: #999
+			font-style: normal
+
+	.client-comment
+		font-size: 16px
+		line-height: 28px
+		font-weight: 200
+		position: relative
+
+		.client-quotation
+			+position(absolute, -20px null null -20px)
+			+size(60px)
+			z-index: -1
+			opacity: 0.2
+
+			path
+				fill: $section-title
+
+.client-logo-wrapper
+	position: relative
+	width: 100%
+	margin: 0 auto 100px
+	+display(flex)
+	+align-items(flex-end)
+	+justify-content(space-around)
+
+	.client-logo
+		cursor: pointer
+		margin: 300px 10px 0px 0px
+		padding-bottom: 15px
+		border-bottom: 4px solid transparent
+		opacity: 0.4
+
+		&.active-client
+			border-bottom: 4px solid $section-title
+			opacity: 1
+
+.client-controls
+	+position(absolute, 0px 0px 0px 0px)
+	width: 100%
+	margin-top: -20px
+
+	> div
+		+size(40px)
+
+	.client-next
+		+position(absolute, 50% 10px null null)
+		z-index: 1
+		cursor: pointer
+
+	.client-prev
+		+position(absolute, 50% null null 10px)
+		z-index: 1
+		cursor: pointer
