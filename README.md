@@ -12,6 +12,10 @@ My second Jekyll site.
 A commissioned site providing information about a friends tutoring business.
 Currently in progress.
 
+##Legacy Hake Blog
+A very basic, hand written HTML, CSS, Javascript personal blog.
+Used as a test bed for practice and tutorials with a range of Javascript libraries.
+Relaced with a Jekyll site available at [ss-hake.github.io][ss-hake.github.io]
 
 ##Legacy Buntingford Computing
 The first Ruby on Rails app I created.
