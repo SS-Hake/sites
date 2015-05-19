@@ -1,0 +1,29 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+
+      
+      <%= link_to "Buntingford Computing", root_path, class: "brand" %>
+ 
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+      	<ul class="nav">
+      		<li><%= link_to "Home", root_path %></li>
+      		<li><%= link_to "About", about_path %></li>
+          <li><%= link_to "Projects", projects_path %></li>
+          <li><%= link_to "Blog", blog_path %></li>
+      	</ul>
+      	<ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "You are logged in", "#" %></li>
+            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Log In", new_user_session_path %></li>
+          <% end %>
+      	</ul>
+      </div>
+
+    </div>
+  </div>
+</div>

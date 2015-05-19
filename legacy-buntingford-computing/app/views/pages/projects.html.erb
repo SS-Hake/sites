@@ -1,0 +1,310 @@
+<!--
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<title>FlappyJS</title>
+
+	<script src="assets/application-788ba7ea9710c476e32979b35085069c.js"></script>
+
+	<style>
+	canvas {
+		display: block;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	</style>
+</head>
+<body> -->
+<script>
+//declare main variables
+var 
+cavas, 
+context,
+width,
+height,
+frames = 0,
+score = 0,
+best = 0,
+fgPos = 0,
+
+current_state,
+states = {
+	Splash: 0, Game:1, Score:2
+},
+
+okButton,
+
+bird = {
+
+	x: 80,
+	y: 100,
+	frame: 0,
+	animation: [0, 1, 2, 1],
+	rotation: 0,
+	radius: 12,
+	gravity: 0.25,
+	_jump: 4.6,
+
+	jump: function() {
+		this.velocity = -this._jump;
+	},
+	update: function() {
+		var n = current_state === states.Splash ? 10 : 5;
+		this.frame += frames % n === 0 ? 1 : 0;
+		this.frame %= this.animation.length;
+
+		if(current_state === states.Splash) {
+			this.y = height - 280 + 5*Math.sin(frames/10);
+			this.rotation = 0;
+		} else {
+			this.velocity += this.gravity;
+			this.y += this.velocity;
+
+			if(this.y >= height - s_fg.height - 10) {
+				this.y = height - s_fg.height;
+				if (current_state === states.Game) {
+					current_state = states.Score;
+				}
+				this.velocity = this._jump;
+			}
+
+				if (this.velocity >= this._jump) {
+					this.frame = 0;
+					this.rotation = Math.min(Math.PI/2, this.rotation + 0.3);
+				} else {
+					this.rotation = -0.4;
+				}
+		}
+	},
+	draw: function(ctx) {
+
+		ctx.save();
+		ctx.translate(this.x, this.y);
+		ctx.rotate(this.rotation);
+		
+		// draw bird 
+		var n = this.animation[this.frame];
+		s_bird[n].draw(ctx, -s_bird[n].width/2, -s_bird[n].height/2);
+		
+		//ctx.beginPath();
+		//ctx.arc(0, 0, this.radius, 0, 2*Math.PI);
+		//ctx.fill();
+
+		ctx.restore();
+	},
+},
+pipes = {
+
+	_pipes: [],
+
+	reset: function() {
+		this._pipes = [];
+	},
+
+	update: function() {
+		if(frames % 100 === 0) {
+			var _y = height - (s_pipeSouth.height + s_fg.height + 120 + 200 * Math.random());
+			this._pipes.push({
+				x: 500,
+				y: _y,
+				width: s_pipeSouth.width,
+				height: s_pipeSouth.height
+			}); 
+		}
+
+		for(var i = 0, len = this._pipes.length; i < len; i++) {
+			var p = this._pipes[i];
+
+			if (i ===0) {
+				
+				score += p.x === bird.x ? 1 : 0;
+				
+				var cx = Math.min(Math.max(bird.x, p.x), p.x + p.width);
+				var cy1 = Math.min(Math.max(bird.y, p.y), p.y + p.height);
+				var cy2 = Math.min(Math.max(bird.y, p.y + p.height + 80), p.y + 2 * p.height + 80);
+
+				var dx = bird.x - cx;
+				var dy1 = bird.y - cy1;
+				var dy2 = bird.y - cy2;
+
+				var d1 = dx * dx + dy1 * dy1;
+				var d2 = dx * dx + dy2 * dy2;
+
+				var r = bird.radius * bird.radius;
+
+				if(r > d1 || r > d2) {
+					current_state = states.Score;
+				}
+			}
+
+			p.x -= 2;
+			if(p.x < -50) {
+				this._pipes.splice(i, 1);
+				i--;
+				len--;
+			}
+		}
+
+	},
+
+	draw: function(ctx) {
+		for(var i = 0, len = this._pipes.length; i < len; i++) {
+			var p = this._pipes[i];
+			s_pipeSouth.draw(ctx, p.x, p.y);
+			s_pipeNorth.draw(ctx, p.x, p.y + 80 + p.height);
+		}
+	},
+};
+
+function onPress(evt) {
+
+	switch(current_state) {
+		case states.Splash:
+			current_state = states.Game;
+			bird.jump();
+			break;
+		case states.Game:
+			console.log("Changed state to Game")
+			bird.jump();
+			break;		
+		case states.Score:
+			console.log("State changed to Score")
+			//redo this - doesnt work in firefox
+			var mouseX = evt.offsetX, mouseY = evt.offsetY;
+			
+			if(okButton.x < mouseX && mouseX < okButton.x + okButton.width &&
+			   okButton.y < mouseY && mouseY < okButton.y + okButton.height) {
+			   	pipes.reset();
+				current_state = states.Splash;
+				score = 0;
+			   }
+			break;
+
+
+	}
+}
+
+function main() {
+	canvas = document.createElement("canvas");
+
+	width = window.innerWidth;
+	height = window.innerHeight;
+
+	var evt = "touchstart";
+	if(width >= 500) {
+		width = 320;
+		height = 480;
+		canvas.style.border = "1px solid #A901DB"
+		evt = "mousedown";
+	}
+
+	document.addEventListener(evt, onPress);
+
+	canvas.width = width;
+	canvas.height = height;
+	ctx = canvas.getContext("2d");
+
+	current_state = states.Splash;
+
+	document.body.appendChild(canvas);
+
+	var img = new Image();
+	img.onload = function() {
+		console.log("Loading graphics...");
+		initSprites(this);
+		ctx.fillStyle = s_bg.color;
+		
+		okButton = {
+			x: (width - s_buttons.Ok.width) / 2,
+			y: height / 1.3,
+			width: s_buttons.Ok.width,
+			height: s_buttons.Ok.height
+		}
+		
+		run();
+		console.log("Graphics Loaded")
+
+	}
+	img.src = "assets/sheet-6df1e69225e165a9ecbefe6cba3e1482.png";
+}
+
+function run() {
+	var loop = function() {
+		update();
+		render();
+
+		window.requestAnimationFrame(loop, canvas);
+	}
+
+		window.requestAnimationFrame(loop, canvas);
+} 
+
+function update() {
+	frames++;
+
+	if (current_state !== states.Score) {
+		fgPos = (fgPos - 2) % 14;
+	} else {
+		best = Math.max(best, score);
+	}
+
+	if(current_state === states.Game) {
+		pipes.update();
+	}
+
+	bird.update();
+} 
+
+function render() {
+	ctx.fillRect(0, 0, width, height);
+	//draw background collage
+	s_bg.draw(ctx, 0, height - s_bg.height);
+	s_bg.draw(ctx, s_bg.width, height - s_bg.height);
+	//draw bird
+	pipes.draw(ctx);
+	bird.draw(ctx);
+	//foreground collage
+	s_fg.draw(ctx, fgPos, height - s_fg.height);
+	s_fg.draw(ctx, fgPos + s_fg.width, height - s_fg.height);
+
+	var width2 = width / 2;
+	//If game state is splash draw the get ready text and instructions
+	if(current_state === states.Splash) {
+		s_splash.draw(ctx, width2 - s_splash.width / 2, height / 2);
+		s_text.GetReady.draw(ctx, width2 - s_text.GetReady.width / 2, height / 4);
+
+	}
+	//if game state is Score draw the end items & restart button
+	if(current_state === states.Score) {
+		s_text.GameOver.draw(ctx, width2 - s_text.GameOver.width / 2, height - 400);
+		s_score.draw(ctx, width2 - s_score.width / 2, height / 2.5);
+		s_buttons.Ok.draw(ctx, okButton.x, okButton.y);
+		
+		s_numberS.draw(ctx, width / 1.4, height / 2.11, score);
+		s_numberS.draw(ctx, width / 1.4, height / 1.79, best);
+		
+		if(best > 10) {
+			s_buttons.Menu.draw(ctx, width2 -47, height - 255)
+		}
+	} else {
+		s_numberB.draw(ctx, width2 / 1.1, 20, score);
+	}
+
+} 
+
+main();
+
+</script>
+<!--
+<!--</body>
+</html> -->

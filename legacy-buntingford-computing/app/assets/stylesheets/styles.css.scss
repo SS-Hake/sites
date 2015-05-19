@@ -1,0 +1,35 @@
+$baseFontFamily: Oxygen;
+@import url(https://fonts.googleapis.com/css?family=Oxygen);
+$headingsFontFamily: Lato;
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+
+$btn-PrimaryBackground: blue;
+$navbarBackgroundHighlight: white;
+$navbarBackground: white;
+
+@import 'bootstrap';
+
+body{
+	padding: 60px;
+}
+
+@import 'bootstrap-responsive';
+
+.footer {
+	margin-top: 50px;
+	color: $grayLight;
+	a {
+		color: $gray;
+	}
+}
+
+.hero-unit {
+	text-align: center;
+
+}
+
+.lead {
+	margin-top: 50px;
+
+}

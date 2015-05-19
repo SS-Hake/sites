@@ -1,0 +1,24 @@
+<% if user_signed_in? %>
+	<div>
+		<h1>Hello</h1>
+	</div>	
+<% else %>
+
+	<div class="hero-unit">
+		<h1>Save Buntingford Library</h1>
+		<p class="lead">
+			Buntingford Library could be closing soon!
+
+			To help save Buntingford Library please <br> <b>sign our petition</b> <br> 
+			or attend the public meeting at the Buntingford Library on the <br> <b>2nd of October at 3:30pm</b>! <br>
+		</p>
+		<p>
+			<%= link_to "Sign our petition now!", class: "btn btn-primary btn-large" %>
+		</p>
+	</div>
+	<div>
+
+
+
+	</div>
+<% end %>
