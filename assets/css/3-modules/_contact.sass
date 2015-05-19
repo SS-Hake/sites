@@ -1,0 +1,38 @@
+.section-contact
+	text-align: center
+	padding-bottom: 50px
+
+	.social-networks
+		max-width: 700px
+		margin: 0px auto 50px
+		+display(flex)
+		+justify-content(space-around)
+		+flex-wrap(wrap)
+
+		a
+			display: block
+			background: $section-title
+			+size(50px)
+			line-height: 50px
+			color: #fff
+			border-radius: 50%
+			font-size: 20px
+
+			&:hover
+				+transform(scale(1.5))
+				background: #333
+
+	.bar 
+		width: 250px
+		height: 0px
+		border-top: 4px solid $section-title
+		margin: 0px auto
+
+	.large-link
+		display: inline-block
+		color: $section-title
+		font-size: 72px
+		font-weight: 300
+
+		&:hover
+			color: #333
