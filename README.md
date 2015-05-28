@@ -11,6 +11,7 @@ slick, responsive experience on devices of any screen size.
 My second Jekyll site.
 A commissioned site providing information about a friends tutoring business.
 Currently in progress.
+Available at: [www.thompsontutorials.co.uk][hhtp://www.thompsontutorials.com]
 
 ##Legacy Hake Blog
 A very basic, hand written, HTML, CSS, Javascript personal blog.
