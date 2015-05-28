@@ -1,0 +1,61 @@
+.footer-section
+	height: 130px
+	background: #0AF
+
+	.footer-lockup
+		padding: 25px 0px 0px 25px
+		margin-bottom: 0px
+		max-width: 600px
+
+		.footer-title
+			margin: 0px 0px 10px
+			color: white
+
+		nav
+			margin-left: 10px
+			font: 
+				weight: 800
+			a 
+				color: white
+				margin-left: 20px
+
+				&:hover
+					color: #00476A
+
+.contact-creator
+	margin-top: -22px
+	text-transform: uppercase
+	font-weight: 800
+	clear: both
+	float: right
+	width: 200px
+	color: white
+	+clearfix
+
+	a
+		color: white
+
+		&:hover
+			color: #00476A
+
+@media (max-width: 485px)
+	.footer-lockup
+		.footer-title
+			font-size: 29px
+	.contact-creator
+		margin-top: 0px
+
+@media (max-width: 350px)
+	.footer-lockup
+	
+		.footer-title
+			font-size: 20px
+
+		nav
+			margin-left: 0px
+
+			a 
+				margin-left: 0px
+
+	.contact-creator
+		margin-top: 0px
