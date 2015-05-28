@@ -1,0 +1,15 @@
+#Website Settings
+title: Thompson Tutorials
+email: info@thompsontutorial.co.uk
+description: "Biology tutoring from Lewis Thompson"
+
+# Build settings
+
+markdown: kramdown
+permalink: pretty
+
+port: 4000 
+
+sass:
+  sass_dir: assets/css
+  style: :nested  
