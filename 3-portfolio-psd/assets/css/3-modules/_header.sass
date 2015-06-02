@@ -1,7 +1,7 @@
 header
 	height: 540px
 	background: url(../img/header/header-bg.png) center center
-	background-size: cover
+	background-size: cover 
 
 	.title-lockup
 		width: 940px
@@ -37,24 +37,53 @@ header
 			margin: 0px auto
 			
 			.logo
+				text-transform: uppercase
+				margin: 0px
+				padding: 32px 0px 32px 0px
+				height: 36px
 				float: left
-				font-size: 35px
+				font-size: 36px
 				font-weight: 700
-			
-			nav
-				a	
-					padding-bottom: 15px
-					margin-left: 30px
-					text-transform: uppercase
-					font:
-						size: 15px
-						weight: 700
 
-					&:hover
-						color: #65ba99
-
-			.social-links
+			.info-bar-links
 				float: right
+				display: inline inline-flex
+				height: 100px
+				width: 540px
+				vartical-align: middle
 
+				nav
+					height: 20px
+					padding: 40px 0px 40px 0px
+					clear: both
+					a	
+						margin-left: 25px
+						text-transform: uppercase
+						font:
+							size: 15px
+							weight: 700
 
+						&:hover
+							color: #65ba99
 
+					.divider
+						padding-left: 50px
+						color: $infobar-color
+
+				.social-link
+					position: relative
+					margin: -9px
+					margin-left: 10px
+					display: inline-block
+					+size(38px)
+					z-index: 2
+
+				.twitter
+					background: url(../img/header/twitter-icon.png) center center
+					
+				.facebook
+					background: url(../img/header/facebook-icon.png) center center
+				.linkedin
+					background: url(../img/header/linkedin-icon.png) center center
+				.flickr
+					background: url(../img/header/flickr-icon.png) center center
