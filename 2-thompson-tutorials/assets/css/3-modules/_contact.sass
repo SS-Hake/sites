@@ -1,16 +1,57 @@
 .contact-section
 	background: #F6F6F8
-	padding-bottom: 25px
+	text-align: center
+	color: white
 
 	.contact-lockup
-		margin: 0px auto
+		margin: 0px 25px
 		max-width: 620px
+		display: inline-block
 
-		div
-			padding: 0px 15px
+		.contact-section
+			width: auto
+			height: 40px
 			margin: 25px auto
-			display: inline-block
+			background: #0C415B
+			overflow: hidden
+			border-radius: 5px
 
-			font:
-				size: 15px
-				weight: 400
+			.contact-padding
+				margin: 6px
+
+				.contact-social-media
+					background: #0C415B
+					padding-right: 15px
+					font:
+						size: 18px
+						weight: 800
+					margin: 0px auto
+
+					a 
+						color: white
+
+						&:hover
+							color: #ccc
+
+				.contact-title
+					background: #0C415B
+					padding-right: 15px
+					font:
+						size: 18px
+						weight: 800
+					margin: 0px auto
+					display: inline-block
+
+					a 
+						color: white
+
+						&:hover
+							color: #ccc
+
+@media (max-width: 350px)
+	.contact-section
+		.contact-lockup
+			.contact-section
+				.contact-padding
+					.contact-title
+						display: none
