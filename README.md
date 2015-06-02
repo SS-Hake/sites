@@ -15,6 +15,7 @@ Available at: [www.thompsontutorials.co.uk](hhtp://www.thompsontutorials.com)
 
 ##3-Portfolio-PSD
 Responsive site made with the assets within a PSD document.
+Design available [here.](http://i.imgur.com/0f70Pli.jpg)
 Document available from [the uncreative lab](http://theuncreativelab.com/portfolio/folio-one-page-theme/).
 
 ##Legacy Hake Blog
