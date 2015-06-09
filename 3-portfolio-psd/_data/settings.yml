@@ -1,0 +1,10 @@
+portraits:
+- {name: portrait-1, file-name: 'portrait-1'}
+- {name: portrait-2, file-name: 'portrait-2'}
+- {name: portrait-3, file-name: 'portrait-3'}
+- {name: portrait-4, file-name: 'portrait-4'}
+
+images:
+- {name: random-3, file-name: 'random-3'}
+- {name: random-4, file-name: 'random-4'}
+- {name: random-5, file-name: 'random-5'}

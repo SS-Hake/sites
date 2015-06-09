@@ -19,18 +19,19 @@
 				<a class="row-2" href="">8</a>
 			</div>
 			<div class="images-portraits">
-				<a class="row-3" href="">9</a>
-				<a class="row-3" href="">10</a>
-				<a class="row-3" href="">11</a>
-				<a class="row-3" href="">12</a>
+			{% for portrait in site.data.settings.portraits %}
+				<a class="row-3" href="" style="background: url(/assets/img/portfolio/{{ portrait.file-name }}.png) center center">
+					<!-- {{ portrait.name }} -->
+				</a>
+			{% endfor %}
 			</div>
 			<div class="images-square-lower">
-				<a class="row-4" href="">13</a>
-				<a class="row-4 half" href="">14</a>
-				<a class="row-4 half" href="">15</a>
-				<a class="row-4 half" href="">16</a>
-				<a class="row-4 half" href="">17</a>
-				<a class="row-4"href="">18</a>
+				<a class="row-4" href="" style="background: url(/assets/img/portfolio/hover/horizontal-no-picture.png) center center"></a>
+				<a class="row-4 half" href="" style="background: url(/assets/img/portfolio/hover/horizontal-no-picture.png) center center"></a>
+				{% for image in site.data.settings.images %}
+					<a class="row-4 half" href="" style="background: url(/assets/img/portfolio/{{ image.file-name }}.png) center center"></a>
+				{% endfor %}
+				<a class="row-4"href="" style="background: url(/assets/img/portfolio/random-6.png) center center"></a>
 			</div>
 		</div>
 	</div>
