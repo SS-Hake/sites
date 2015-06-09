@@ -1,5 +1,9 @@
 <section class="logos">
 	
-	<div class="logo-images"></div>
+	<div class="logo-images">
+		{% for logo in site.data.settings.logos %}
+			<a href="" style="background: url(/assets/img/logos/{{logo.file-name}}.png); background-size: contain; background-position: center bottom; background-repeat: no-repeat; min-width: 150px; min-height: 35px;"></a>
+		{% endfor %}
+	</div>
 
 </section>

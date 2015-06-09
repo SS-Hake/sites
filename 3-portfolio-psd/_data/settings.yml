@@ -8,3 +8,9 @@ images:
 - {name: random-3, file-name: 'random-3'}
 - {name: random-4, file-name: 'random-4'}
 - {name: random-5, file-name: 'random-5'}
+
+logos:
+- {name: canon, file-name: 'canon-logo'}
+- {name: nikon, file-name: 'nikon-logo'}
+- {name: manfrotto, file-name: 'manfrotto-logo'}
+- {name: prolight, file-name: 'prolight-logo'}
